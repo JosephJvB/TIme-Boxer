@@ -3,7 +3,7 @@ import React from 'react'
 // import Header from './Header'
 import Start from './Start'
 import During from './During'
-// import End from './End'
+import End from './End'
 
 class App extends React.Component {
   constructor (props) {
@@ -44,8 +44,8 @@ class App extends React.Component {
       <div>
         <h1> hey does this work </h1>
         {this.state.isStartVisible && <Start start={this.handleStart}/>}
-        {this.state.isDuringVisible && <During />}
-        {this.state.isEndVisible && <End />}
+        {this.state.isDuringVisible && <During stop={this.handleStop}/>}
+        {this.state.isEndVisible && <End rematch={this.handleRematch} />}
       </div>
     )
   }

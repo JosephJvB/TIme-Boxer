@@ -1,8 +1,11 @@
 import React from 'react'
 
-const End = () => {
+const End = (props) => {
   return (
-    <h1>Times out!</h1>
+    <div>
+      <h1>Times out!</h1>
+      <button onClick={props.rematch}>Want to try again?</button>
+    </div>
   )
 }
 

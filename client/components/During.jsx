@@ -4,7 +4,7 @@ const During = (props) => {
   return (
     <div>
       <h1>Clock is on!</h1>
-      <button onClick={props.handleStop}>Stop the timer!</button>
+      <button onClick={props.stop}>Stop the timer!</button>
     </div>
   )
 }
