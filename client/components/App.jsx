@@ -2,14 +2,14 @@ import React from 'react'
 
 // import Header from './Header'
 import Start from './Start'
-// import During from './During'
+import During from './During'
 // import End from './End'
 
 class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      isStartVisible: false,
+      isStartVisible: true,
       isDuringVisible: false,
       isEndVisible: false
     }
@@ -20,22 +20,22 @@ class App extends React.Component {
 
   handleStart () {
     this.setState({
-      isStartVisible: !this.state.isStartVisible
-      // isDuringVisible: true
+      isStartVisible: !this.state.isStartVisible,
+      isDuringVisible: !this.state.isDuringVisible
     })
   }
 
   handleStop () {
     this.setState({
-      isDuringVisible: false,
-      isEndVisible: true
+      isDuringVisible: !this.state.isDuringVisible,
+      isEndVisible: !this.state.isEndVisible
     })
   }
 
   handleRematch () {
     this.setState({
-      isEndVisble: false,
-      isStartVisible: true
+      isEndVisible: !this.state.isEndVisible,
+      isStartVisible: !this.state.isStartVisible
     })
   }
 
@@ -43,8 +43,9 @@ class App extends React.Component {
     return (
       <div>
         <h1> hey does this work </h1>
-        <button onClick={this.handleStart}>Toggle</button>
-        {this.state.isStartVisible && <Start />}
+        {this.state.isStartVisible && <Start start={this.handleStart}/>}
+        {this.state.isDuringVisible && <During />}
+        {this.state.isEndVisible && <End />}
       </div>
     )
   }
