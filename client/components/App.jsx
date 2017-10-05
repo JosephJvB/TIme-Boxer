@@ -18,7 +18,8 @@ class App extends React.Component {
     this.handleRematch = this.handleRematch.bind(this)
   }
 
-  handleStart () {
+  handleStart (mins) {
+    console.log(mins)
     this.setState({
       isStartVisible: !this.state.isStartVisible,
       isDuringVisible: !this.state.isDuringVisible
@@ -42,15 +43,9 @@ class App extends React.Component {
   render () {
     return (
 
-      <div>
-        <h1> hey does this work </h1>
-        {this.state.isStartVisible && <Start start={this.handleStart}/>}
-        {this.state.isDuringVisible && <During stop={this.handleStop}/>}
-        {this.state.isEndVisible && <End rematch={this.handleRematch} />}
-
-
-        <section className="hero">
-          <div className="hero-body" >
+      <div className="container has-text-centered">
+        <section className="hero app-body section">
+          <div className="hero-head" >
             <div className="container">
               <h1 className="title">
               Welcome to the Time-Boxer!
@@ -61,6 +56,11 @@ class App extends React.Component {
                 <br/>Time yourself - set your time and see if you can bet the clock.
               </h2>
             </div>
+          </div>
+          <div className="hero-body">
+            {this.state.isStartVisible && <Start start={this.handleStart} />}
+            {this.state.isDuringVisible && <During stop={this.handleStop} />}
+            {this.state.isEndVisible && <End rematch={this.handleRematch} />}
           </div>
         </section>
         <figure className="image is-128x128" >
