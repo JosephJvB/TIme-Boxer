@@ -1,8 +1,11 @@
 import React from 'react'
 
-const Start = () => {
+const Start = (props) => {
   return (
-    <h1>This is start</h1>
+    <div>
+      <h1>This is start</h1>
+      <button onClick={props.start}>Start!</button>
+    </div>
   )
 }
 
