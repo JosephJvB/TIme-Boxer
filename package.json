@@ -37,6 +37,8 @@
   },
   "dependencies": {
     "body-parser": "^1.15.2",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "moment": "^2.18.1",
+    "react-countdown-clock": "^2.0.0"
   }
 }
