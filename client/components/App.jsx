@@ -11,25 +11,28 @@ class App extends React.Component {
     this.state = {
       isStartVisible: true,
       isDuringVisible: false,
-      isEndVisible: false
+      isEndVisible: false,
+      setTime: 0,
+      stopTime: {min: 0, sec: 0}
     }
     this.handleStart = this.handleStart.bind(this)
     this.handleStop = this.handleStop.bind(this)
     this.handleRematch = this.handleRematch.bind(this)
   }
 
-  handleStart (mins) {
-    console.log(mins)
+  handleStart (setTime) {
     this.setState({
       isStartVisible: !this.state.isStartVisible,
-      isDuringVisible: !this.state.isDuringVisible
+      isDuringVisible: !this.state.isDuringVisible,
+      setTime: setTime
     })
   }
 
-  handleStop () {
+  handleStop (stopTime) {
     this.setState({
       isDuringVisible: !this.state.isDuringVisible,
-      isEndVisible: !this.state.isEndVisible
+      isEndVisible: !this.state.isEndVisible,
+      stopTime: stopTime
     })
   }
 
@@ -59,8 +62,8 @@ class App extends React.Component {
           </div>
           <div className="hero-body">
             {this.state.isStartVisible && <Start start={this.handleStart} />}
-            {this.state.isDuringVisible && <During stop={this.handleStop} />}
-            {this.state.isEndVisible && <End rematch={this.handleRematch} />}
+            {this.state.isDuringVisible && <During stop={this.handleStop} mins={this.state.setTime} setTime={this.handleStart} />}
+            {this.state.isEndVisible && <End rematch={this.handleRematch} stopTime={this.state.stopTime}/>}
           </div>
         </section>
         <figure className="image is-128x128" >
